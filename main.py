@@ -11,4 +11,8 @@ import database
 
 if __name__ == '__main__':
 
-    db = database.DATABASE('foo.db')
+    db = database.DATABASE('insurance-data.csv', True)
+    df = db.databaseGetData()
+
+    for row in df:
+        print(row)
