@@ -11,6 +11,10 @@ import database
 
 if __name__ == '__main__':
 
+    # A simple way to create the database from a csv file
+    # Future improvements would be to take a string from the user
+    # and whether to create a new database to overwrite the previous one if it
+    # exists
     db = database.DATABASE('insurance-data.csv', True)
     df = db.databaseGetData()
 

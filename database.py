@@ -18,19 +18,25 @@ class DATABASE(object):
         Constructor
         '''
 
+        # Class-wide variables
         self.databaseLocation = location
         self.db = None
         self.cursor = None
 
+        # Parse user input for create new or not
+        # Future improvement is to take user input for replace, create etc
         if create == False:
             self.db = self._getConnection(self.databaseLocation)
         else:
             self._createDatabase(location)
 
+    # When user wants a pre-existing database
     def _getConnection(self, DB_location):
         db = sqlite3.connect(DB_location)
         return db
 
+    # Creates a new database
+    # Future improvement: request user entry for db file name
     def _createDatabase(self, location):
         df = pd.read_csv(location)
         self.db = sqlite3.connect('insurance-data.db')
